@@ -3,18 +3,18 @@
     <div class="container mx-auto">
       <appHeader />
     </div>
-    <search />
+    <searchGiphy />
   </div>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
-import search from '@/components/search/search.vue';
+import searchGiphy from '@/components/search/searchGiphy.vue';
 import appHeader from '@/components/header/appHeader.vue';
 
 @Options({
   components: {
-    search,
+    searchGiphy,
     appHeader,
   },
 })
