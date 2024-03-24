@@ -2,10 +2,17 @@ import {Vue} from "vue-class-component";
 import searchGiphyService from '@/service/giphyService';
 
 export default class SearchGiphy extends Vue {
+
     private serviceGif = new searchGiphyService();
+
     public gifs = [];
     public offset = 0;
     public isLoading = false;
+    public query = '';
+
+    public search() {
+        this.searchGifs(this.query);
+    }
 
     public async getTrendingGifs() {
         try {
@@ -14,8 +21,18 @@ export default class SearchGiphy extends Vue {
             this.offset += 25;
             this.isLoading = false;
         } catch (error) {
-            console.error("Erro ao buscar gifs:", error);
+            console.error("Error trending gifs:", error);
             this.isLoading = false;
+        }
+    }
+
+    public async searchGifs(query: string) {
+        try {
+            this.offset = 0;
+            const response = await this.serviceGif.findSearchingGifsByParameter(query);
+            this.gifs = response.data.data;
+        } catch (error) {
+            console.error("Error search gifs:", error);
         }
     }
 

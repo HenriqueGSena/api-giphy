@@ -5,8 +5,9 @@
         <input
             class="form-control text-center"
             type="text"
+            v-model="query"
             placeholder="Search GIFs...">
-        <button class="btn btn-success">Search</button>
+        <button class="btn btn-success" @click="search">Search</button>
       </div>
     </div>
     <div class="container-md">
