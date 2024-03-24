@@ -1,6 +1,6 @@
 <template>
   <div class="text-center mt-lg-5 header-custom">
-    <h2>Frontend Developer Challenge Giphy</h2>
+    <h2>Gify Challenge</h2>
   </div>
 </template>
 

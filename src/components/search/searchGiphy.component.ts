@@ -9,6 +9,7 @@ export default class SearchGiphy extends Vue {
     public offset = 0;
     public isLoading = false;
     public query = '';
+    public zoomedImageUrl = '';
 
     public search() {
         this.searchGifs(this.query);
@@ -52,5 +53,13 @@ export default class SearchGiphy extends Vue {
                 this.getTrendingGifs();
             }
         }
+    }
+
+    public async zoomImage(imageUrl: string) {
+        this.zoomedImageUrl = imageUrl;
+    }
+
+    public closeZoom() {
+        this.zoomedImageUrl = '';
     }
 }
